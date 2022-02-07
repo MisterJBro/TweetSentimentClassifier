@@ -1,0 +1,15 @@
+nltk
+deep-translator
+contractions
+clean_text
+datefinder
+emosent-py
+pytorch-lightning
+transformers
+Twitter_Frontend_API
+sentencepiece
+textblob
+pyspellchecker
+demoji
+nlpaug
+gensim
