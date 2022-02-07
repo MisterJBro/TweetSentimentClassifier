@@ -152,8 +152,8 @@ def remove_all_punctuation(sent):
     return sent
 
 # Lemmatization of words
-white = pd.read_csv('../datasets/whitelist/whitelist.csv', names=['content'])
-white = set(white['content'].tolist())
+#white = pd.read_csv('../datasets/whitelist/whitelist.csv', names=['content'])
+#white = set(white['content'].tolist())
 def get_wordnet_pos(word):
     tag = nltk.pos_tag([word])[0][1][0].upper()
     tag_dict = {"J": wordnet.ADJ,
@@ -164,7 +164,7 @@ def get_wordnet_pos(word):
 lemmatizer = WordNetLemmatizer()
 def lemmatize(sent):
     lem = [lemmatizer.lemmatize(w, get_wordnet_pos(w)) for w in nltk.word_tokenize(sent)]
-    lem = [l for l in lem if l in white]
+    #lem = [l for l in lem if l in white]
     return ' '.join(lem)
 
 # Remove stop word, however, some stopwords are important keep them or e.g. "muslim against racism" -> "muslim racism", changes the meaning
@@ -242,14 +242,11 @@ if __name__ == "__main__":
 
     # Importing data
     train_df = pd.read_csv('../datasets/competition/train.csv')
-    trial = pd.read_csv('../datasets/competition/trial.csv')
-    test = pd.read_csv('../datasets/competition/test.csv')
-    big = pd.read_csv('../datasets/others/big.csv')
     train = train_df[:400]
     dev = train_df[400:]
 
-    # Preprocess list, use the following options: trial, train, dev, test
-    preprocess_list = ['test']
+    # Preprocess list, use the following options: train, dev
+    preprocess_list = ['train', 'dev']
     for name in preprocess_list:
         df = eval(name)
 
