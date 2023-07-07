@@ -1,4 +1,4 @@
-# Shared Task 2
+# Tweet Classifier
 If you want to run the scripts and train the ensemble, do the following:
 * Install all required packages from requirements.txt
 * Replace the train.csv in the dataset/competition dir with the real train.csv
